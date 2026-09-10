@@ -1,0 +1,11 @@
+.git
+.gitignore
+AGENTS.md
+README.md
+artifacts
+certs
+*.pem
+*.key
+*.crt
+*.p12
+*.env

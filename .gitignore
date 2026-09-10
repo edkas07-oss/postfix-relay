@@ -1,0 +1,11 @@
+.DS_Store
+*.swp
+*.bak
+*.tmp
+*~
+certs/
+*.pem
+*.key
+*.crt
+*.p12
+*.env
