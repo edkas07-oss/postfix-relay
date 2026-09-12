@@ -81,6 +81,7 @@ postconf -e "inet_interfaces = all"
 postconf -e "inet_protocols = ipv4"
 postconf -e "mydestination ="
 postconf -e "relayhost = [${RELAY_HOST}]:${RELAY_PORT}"
+postconf -e "smtp_host_lookup = dns, native"
 postconf -e "smtp_tls_security_level = ${SMTP_OUTBOUND_TLS:-none}"
 
 # Inbound TLS (Port 587 STARTTLS)
