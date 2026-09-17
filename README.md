@@ -1,10 +1,22 @@
-# Postfix Enterprise SMTP Relay Bridge
+# 🚀 Postfix Enterprise SMTP Relay Bridge
 
-[![Base Image](https://img.shields.io/badge/base-alpine-blue.svg)](Containerfile)
-[![SMTP Port](https://img.shields.io/badge/submission_port-587-orange.svg)](README.md)
-[![License](https://img.shields.io/badge/license-Proprietary_&_Confidential-red.svg)](LICENSE)
+[![Base Image](https://img.shields.io/badge/Base-Alpine_3.24-blue.svg)](Containerfile)
+[![SMTP Port](https://img.shields.io/badge/Submission_Port-587-orange.svg)](README.md)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![Security](https://img.shields.io/badge/Security-SASL_%2B_STARTTLS-brightgreen.svg)](CONFIG)
 
 This repository provides a containerized **Postfix Enterprise SMTP Relay Bridge** for the Tomcat Monitoring & Diagnostics platform. It emulates a hardened corporate mail gateway within the local environment.
+
+---
+
+## 📑 Table of Contents
+
+- [🏛️ Architecture & Mail Flow](#️-architecture--mail-flow)
+- [🚀 Key Advantages & Design Invariants](#-key-advantages--design-invariants)
+- [📋 Port Specifications & Network](#-port-specifications--network)
+- [🛠️ Build & Lifecycle Commands](#️-build--lifecycle-commands)
+- [📂 Repository Structure](#-repository-structure)
+- [📄 License, Ownership & Disclaimer](#-license-ownership--disclaimer)
 
 ---
 
@@ -61,6 +73,7 @@ postfix-relay/
 ├── AGENTS.md                  Agent governance principles
 ├── CONFIG                     Configuration parameters & defaults
 ├── Containerfile              Hardened Alpine Postfix OCI container
+├── LICENSE                    Apache License 2.0
 ├── PROJECT                    Script-readable project identifier
 ├── README.md                  Technical architecture documentation
 ├── VERSION                    Release version
@@ -74,8 +87,14 @@ postfix-relay/
 
 ---
 
-## 👤 Author & Maintainer
+## 📄 License, Ownership & Disclaimer
 
-- **Lead Engineer & Architect:** Eddy Wiyatno (<edkas07@gmail.com>)
-- **Role:** Senior DevOps & Reliability Engineer
-- **Project:** Tomcat Monitoring & Diagnostics Platform
+### 👤 Author & Ownership
+This repository, along with its associated architectures, automation components, and codebases, is designed, authored, and maintained by **Eddy Wiyatno** ([@edkas07-oss](https://github.com/edkas07-oss)).
+
+### ⚖️ License
+This project is licensed under the [Apache License 2.0](LICENSE) - see the [LICENSE](LICENSE) file for complete terms and conditions.
+
+### 🛡️ Research & Development Disclaimer
+> [!NOTE]
+> All research, development, architectural design, prototyping, test fixtures, and validation suites in this repository were conducted and verified exclusively within **independent, personal laboratory environments** using personal hardware, network infrastructure, and self-hosted tooling. No confidential corporate assets, proprietary production data, or third-party enterprise infrastructure were utilized in the creation or publication of this project.

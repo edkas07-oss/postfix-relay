@@ -1,23 +1,17 @@
-# Repository Instructions
+# AGENTS.md — Developer & AI Agent Guidelines for Postfix Enterprise Relay
 
-## Repository Purpose
+## 🎯 Repository Purpose
+This repository provides the image lifecycle, build scripts, test suites, and configurations for the containerized **Postfix Enterprise SMTP Relay Bridge** within the Tomcat Monitoring & Diagnostics platform.
 
-Repository ini menyediakan image lifecycle, build, run, test, dan konfigurasi OCI Postfix Enterprise SMTP Relay Bridge (Pola A) untuk platform observabilitas DevOps Lab.
-Service bertindak sebagai Enterprise Mail Transfer Agent (MTA) perantara yang menerima email investigasi/alert terotentikasi (Port 587 Submission / STARTTLS + SASL) dari Diagnostic Service / Alertmanager, mengelola antrean & rate limiting secara aman, dan meneruskannya (forward / downstream relay) ke Mailpit lokal (`mailpit:1025`).
+The service functions as an intermediate Mail Transfer Agent (MTA) that accepts authenticated incident notifications (Port 587 Submission / STARTTLS + SASL) from the Tomcat Diagnostic Service, enforces secure queue delivery, and forwards emails downstream to Mailpit (`mailpit:1025`) for visual SRE inspection.
 
-## Source of Truth
+## 🏛️ Architecture Rules & Non-Negotiables
+1. **Authenticated Delivery:** Enforce Cyrus SASL authentication (`PLAIN`/`LOGIN`) and STARTTLS encryption on Port `587`.
+2. **Zero Plaintext Credentials:** Runtime credentials MUST NOT be baked into the container image.
+3. **100% Offline Self-Contained Isolation:** No traffic may egress outside the internal private network (`devops-lab`).
 
-- Gunakan dokumentasi Diagnostic MVP & DevOps Engineering Handbook sebagai source contract architecture, security, dan notification.
-- Gunakan `PROJECT`, `VERSION`, dan `CONFIG` bersama untuk menentukan identitas aplikasi dan dependency baseline.
-
-## Working Rules
-
-- Jalankan `./scripts/build.sh` untuk membangun image OCI lokal.
-- Jalankan `./scripts/test.sh` untuk validasi versi dan binary Postfix.
-- Pastikan container berjalan pada network `devops-lab` dan terhubung ke `mailpit:1025`.
-- Jangan menyimpan secret material atau credential plain-text di Git.
-
-## Verification
-
-- Jalankan `./scripts/test.sh`.
-- Jalankan verification probe end-to-end melalui Diagnostic Service atau script verifikasi monitoring.
+## 🛠️ Build & Validation Commands
+- **Build Container Image:** `./scripts/build.sh`
+- **Smoke Test Suite:** `./scripts/test.sh`
+- **Run Container:** `./scripts/run.sh`
+- **Clean Container:** `./scripts/clean.sh`
