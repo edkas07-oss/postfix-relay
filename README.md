@@ -14,6 +14,7 @@ This repository provides a containerized **Postfix Enterprise SMTP Relay Bridge*
 - [🏛️ Architecture & Mail Flow](#️-architecture--mail-flow)
 - [🚀 Key Advantages & Design Invariants](#-key-advantages--design-invariants)
 - [📋 Port Specifications & Network](#-port-specifications--network)
+- [📦 Installation & Deployment Guide](INSTALL.md)
 - [🛠️ Build & Lifecycle Commands](#️-build--lifecycle-commands)
 - [📂 Repository Structure](#-repository-structure)
 - [📄 License, Ownership & Disclaimer](#-license-ownership--disclaimer)
@@ -45,6 +46,20 @@ flowchart LR
 - **Port 25 (Internal):** Standard internal SMTP relay.
 - **Downstream Relay Target:** `mailpit:1025`.
 - **Target Network:** `devops-lab`.
+
+---
+
+## 📦 Installation & Deployment
+
+For complete image build instructions, SASL authentication configuration, and standalone/fleet deployment steps, refer to the dedicated [**`INSTALL.md`**](INSTALL.md) guide.
+
+```bash
+# Build OCI image locally
+./scripts/build.sh
+
+# Deploy via tmctl operator CLI
+tmctl stack deploy --target postfix
+```
 
 ---
 
